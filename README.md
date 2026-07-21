@@ -4,6 +4,13 @@ Data-availability package for ``How social contagions shape collective consensus
 Bundles the generated network files (`nets/`) for external release, alongside the scripts that
 produced and packaged them.
 
+## Pipeline
+
+`nets/` is produced by the generation pipeline in `scripts/` (network
+generation → CSV extraction → eigenvalue precompute, per model/dataset) -
+see [scripts/README.md](scripts/README.md) for the full stage-by-stage
+breakdown and run order.
+
 ## Data
 
 `nets/` is packaged into `<=10MB` chunks under `data/` for upload to a
