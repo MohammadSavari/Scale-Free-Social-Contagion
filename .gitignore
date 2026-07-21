@@ -1,0 +1,8 @@
+__pycache__
+nets/**
+nets/**/*
+scripts/
+scripts/*
+scripts/**
+scripts/**/*
+figures/**
