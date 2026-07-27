@@ -47,3 +47,21 @@ network types, degree sweep, one `.gt` file per (k, p, seed).
 `generate_lfc.py`, `extract_lfc_csv.py`, and `precompute_eig_cache.py` can
 also be run directly (see each file's docstring/`--help`) for a single
 combo, e.g. for testing on a small case.
+
+## Seed values used for the released data
+
+- **ws & mhk, k=8 and k=16**: seeds **1-100** (`8_seed1`...`8_seed100`,
+  `16_seed1`...`16_seed100`), i.e. `submit_lfc_generate.sh {ws,mhk} 1 100 8 16`
+  — 100 realizations each, pooled for the banded figures.
+- **ws & mhk, all other k-values** (2, 4, 6, 10, 12, 14, 18, 20, 22, 24,
+  26, 28, 30, 32): **seed 1 only** (`<k>_seed1`), i.e.
+  `submit_lfc_generate.sh {ws,mhk} 1 1 <k>` — a single realization each.
+- **ke**: laid out differently on disk (`nets/LFC/240/ke/<k>/`, no
+  `_seed` suffix on the directory) since `ke_network(n, m, seed)` doesn't
+  actually depend on `p`. Each k has 100 `.gt` files, one per p-value in
+  the sweep, and each was generated with an independent random seed
+  (`--seed` omitted, so `generate_lfc.py` fell back to
+  `np.random.randint(2**63)`) rather than the ws/mhk sequential 1-100
+  scheme. The seed actually used for a given file is recorded on that
+  file's own `seed` graph property, not reproducible from a single number
+  here.

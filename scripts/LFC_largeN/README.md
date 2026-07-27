@@ -38,3 +38,16 @@ and the standard `source ~/jupy/bin/activate` + `module load` environment.
    python combine_gains.py --nodes 1000 --centrality 50
    # --centrality must match what compute_gains.py used (5% of --nodes)
    ```
+
+## Seed values used for the released data
+
+Unlike `../LFC/`'s pooled multi-seed sweep, this is one graph per (nodes,
+degree) combo, not many realizations. The released `nets/LFC/{1000,5000}/`
+data was generated with `--seed` omitted for each graph, so
+`generate_graph.py` fell back to an independent random seed
+(`np.random.randint(2**63)`) per graph rather than a fixed/shared
+`BASE_SEED`. The exact seed used for any given graph is recorded on that
+`.gt` file's own `seed` graph property, not reproducible from a single
+number here. `submit_largeN_generate.sh` does support a deterministic
+`BASE_SEED + task_index` scheme (see its `<base_seed>` argument above) for
+future reproducible regeneration — it just wasn't used for this release.

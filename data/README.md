@@ -8,11 +8,6 @@ upload to this package's external release target, which caps individual
 files at 10MB. So each subtree is tarred and then split into `<=10MB`
 chunks instead of uploaded as one archive.
 
-`../package_data.sh` does the tarring/splitting; run it via
-`../submit_package_data.sh` as a SLURM job rather than directly - tar/gzip
-over this many small files is slow enough on this cluster's filesystem
-(lustre metadata lookups) that it shouldn't run on the login node.
-
 It produces 9 archives:
 
 | Archive | Source (`nets/...`) |
