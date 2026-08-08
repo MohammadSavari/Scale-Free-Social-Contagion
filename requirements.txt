@@ -1,0 +1,56 @@
+# Python environment used to generate nets/ and figures/ in this package
+# (the ~/jupy virtualenv on the Digital Research Alliance / Compute Canada
+# cluster this was produced on). Versions are the ones actually used;
+# package-manager-local version suffixes (e.g. "+computecanada", tied to
+# this cluster's build system) have been stripped since they aren't
+# meaningful/resolvable off-cluster.
+
+# --- Scientific/graph stack ---
+# Provided by this cluster's environment modules, not pip:
+#   module load StdEnv/2020 gcc/9.3.0 graph-tool/2.56 python/3.10
+# graph-tool in particular is NOT installable via plain pip - use
+# conda-forge (`conda install -c conda-forge graph-tool=2.56`) or your
+# distro's package manager instead.
+graph-tool==2.56
+numpy==1.25.2
+pandas==2.1.0
+scipy==1.11.2
+networkx==3.4.2
+matplotlib==3.7.2
+
+# --- Jupyter kernel stack (pip-installed in the venv) ---
+ipykernel==7.3.0
+ipython==8.39.0
+jupyter_client==8.9.1
+jupyter_core==5.9.1
+traitlets==5.15.1
+debugpy==1.8.21
+nest-asyncio2==1.7.2
+comm==0.2.3
+psutil==7.2.2
+pyzmq==27.1.0
+tornado==6.5.5
+websocket_client==1.9.0
+
+# --- IPython/shell support ---
+jedi==0.20.0
+parso==0.8.7
+decorator==5.3.1
+executing==2.2.1
+pure_eval==0.2.3
+stack_data==0.6.3
+asttokens==3.0.1
+matplotlib_inline==0.2.2
+prompt_toolkit==3.0.52
+pexpect==4.9.0
+ptyprocess==0.7.0
+wcwidth==0.8.2
+pygments==2.20.0
+
+# --- Misc utilities ---
+six==1.17.0
+python_dateutil==2.9.0.post0
+packaging==26.2
+platformdirs==4.10.0
+typing_extensions==4.16.0
+exceptiongroup==1.3.1
