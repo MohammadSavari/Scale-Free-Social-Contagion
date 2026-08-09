@@ -3,7 +3,7 @@
 Data-availability and reproducibility for 
 
 ```bash
-"How social contagions shape collective consensus in the presence of scale-free networks"
+"Social contagion drives collective consensus formation on scale-free networks"
 ```
 
 <p align="center">
